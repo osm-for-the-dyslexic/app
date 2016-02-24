@@ -17,7 +17,14 @@ public class MainOsmForDysActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         mWebView = (WebView) findViewById(R.id.mainWebView);
+        mWebView.setWebViewClient(new OsmForDysWebClient());        
         mWebView.getSettings().setBuiltInZoomControls(false);
+        mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.loadUrl(STARTING_URL);
+        
     }
+    
+    private class OsmForDysWebClient extends WebViewClient {
+    }
+    
 }
