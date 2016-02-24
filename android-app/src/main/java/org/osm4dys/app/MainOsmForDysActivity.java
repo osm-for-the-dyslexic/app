@@ -5,6 +5,9 @@ import android.os.*;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebChromeClient;
+import android.view.Menu;
+import android.view.MenuItem;
+
 
 public class MainOsmForDysActivity extends Activity 
 {
