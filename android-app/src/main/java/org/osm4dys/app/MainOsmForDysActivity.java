@@ -4,6 +4,7 @@ import android.app.*;
 import android.os.*;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.webkit.WebChromeClient;
 
 public class MainOsmForDysActivity extends Activity 
 {
