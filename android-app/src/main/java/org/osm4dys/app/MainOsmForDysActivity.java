@@ -21,6 +21,7 @@ public class MainOsmForDysActivity extends Activity
         mWebView.setWebViewClient(new OsmForDysWebClient());        
         mWebView.getSettings().setBuiltInZoomControls(false);
         mWebView.getSettings().setJavaScriptEnabled(true);
+		mWebView.setWebChromeClient(new WebChromeClient());
         mWebView.loadUrl(STARTING_URL);
         
     }
