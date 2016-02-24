@@ -7,6 +7,7 @@ import android.webkit.WebViewClient;
 import android.webkit.WebChromeClient;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.graphics.Bitmap;
 
 
 public class MainOsmForDysActivity extends Activity 
