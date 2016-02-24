@@ -22,6 +22,9 @@ public class MainOsmForDysActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        if (savedInstanceState != null) {
+            ((WebView)findViewById(R.id.mainWebView)).restoreState(savedInstanceState);
+        }
         mWebView = (WebView) findViewById(R.id.mainWebView);
         mWebView.setWebViewClient(new OsmForDysWebClient());        
         mWebView.getSettings().setBuiltInZoomControls(false);
