@@ -59,19 +59,21 @@ public class MainOsmForDysActivity extends Activity
 		menu.clear();
         menu.add(Menu.NONE, MENU_GO_TO_MAP, 1, "MAP");
 		menu.add(Menu.NONE, MENU_GO_TO_ABOUT, 2, "ABOUT");
+        return true;
     }
     
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
 		switch (id) {
-		case MENU_GO_TO_MAP:
-			mWebView.loadUrl(VIEWER_URL);
-			return true;
-		case MENU_GO_TO_ABOUT:
-			mWebView.loadUrl(ABOUT_URL);
-			return true;
+            case MENU_GO_TO_MAP:
+                mWebView.loadUrl(VIEWER_URL);
+            break;
+            case MENU_GO_TO_ABOUT:
+                mWebView.loadUrl(ABOUT_URL);
+            break;
         }
+        return true;
     }    
    
     private class OsmForDysWebClient extends WebViewClient {
