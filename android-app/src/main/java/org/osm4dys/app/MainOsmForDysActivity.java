@@ -3,6 +3,7 @@ package org.osm4dys.app;
 import android.app.*;
 import android.os.*;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class MainOsmForDysActivity extends Activity 
 {
