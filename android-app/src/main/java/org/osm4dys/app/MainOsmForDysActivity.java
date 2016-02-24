@@ -22,12 +22,12 @@ public class MainOsmForDysActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        mWebView = (WebView) findViewById(R.id.mainWebView);
+        mWebView.setWebViewClient(new OsmForDysWebClient());        
+        mWebView.getSettings().setBuiltInZoomControls(false);
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.setWebChromeClient(new WebChromeClient());
         if (savedInstanceState == null) {
-            mWebView = (WebView) findViewById(R.id.mainWebView);
-            mWebView.setWebViewClient(new OsmForDysWebClient());        
-            mWebView.getSettings().setBuiltInZoomControls(false);
-            mWebView.getSettings().setJavaScriptEnabled(true);
-            mWebView.setWebChromeClient(new WebChromeClient());
             mWebView.loadUrl(VIEWER_URL);
         }
     }
@@ -78,7 +78,7 @@ public class MainOsmForDysActivity extends Activity
     }    
    
     private class OsmForDysWebClient extends WebViewClient {
-		ProgressDialog progressDialog = ProgressDialog.show(MainOsmForDysActivity.this, "", "LOADING OSM FOR THE DYSLEXIC" ,true);
+		ProgressDialog progressDialog = ProgressDialog.show(MainOsmForDysActivity.this, "", "LOADING..." ,true);
 
 		@Override
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
