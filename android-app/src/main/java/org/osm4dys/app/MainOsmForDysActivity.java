@@ -12,7 +12,7 @@ import android.graphics.Bitmap;
 
 public class MainOsmForDysActivity extends Activity 
 {
-    private WebView mWebView;
+    private WebView mWebView = null;
     private static final int MENU_GO_TO_MAP = 10;
     private static final int MENU_GO_TO_ABOUT = 20;
     private static final String VIEWER_URL = "http://www.osm4dys.org/viewer/";
@@ -22,15 +22,15 @@ public class MainOsmForDysActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        if (savedInstanceState != null) {
-            ((WebView)findViewById(R.id.mainWebView)).restoreState(savedInstanceState);
-        }
+        
         mWebView = (WebView) findViewById(R.id.mainWebView);
-        mWebView.setWebViewClient(new OsmForDysWebClient());        
-        mWebView.getSettings().setBuiltInZoomControls(false);
-        mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.setWebChromeClient(new WebChromeClient());
-        if (savedInstanceState == null) {
+        if (savedInstanceState != null) {
+            mWebView.restoreState(savedInstanceState);
+        }else{
+            mWebView.setWebViewClient(new OsmForDysWebClient());        
+            mWebView.getSettings().setBuiltInZoomControls(false);
+            mWebView.getSettings().setJavaScriptEnabled(true);
+            mWebView.setWebChromeClient(new WebChromeClient());
             mWebView.loadUrl(VIEWER_URL);
         }
     }
@@ -41,11 +41,11 @@ public class MainOsmForDysActivity extends Activity
         mWebView.saveState(outState);
     }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        mWebView.restoreState(savedInstanceState);
-    }
+    //@Override
+    //protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    //    super.onRestoreInstanceState(savedInstanceState);
+    //    mWebView.restoreState(savedInstanceState);
+    //}
    
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
