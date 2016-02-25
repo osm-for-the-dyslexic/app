@@ -24,11 +24,11 @@ public class JavascriptInterface{
         String l2 = parts[1].toUpperCase();
         
         Locale theLocale = new Locale(l1,l2);
-        tts = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
+        tts = new TextToSpeech(mContext, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 if(status != TextToSpeech.ERROR) {
-                    t1.setLanguage(theLocale);
+                    tts.setLanguage(theLocale);
                 }
             }
         });
