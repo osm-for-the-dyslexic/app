@@ -1,5 +1,8 @@
 package org.osm4dys.app;
 
+import android.speech.tts.TextToSpeech;
+import java.util.Locale;
+
 
 public class JavascriptInterface{
     private MainOsmForDysActivity mContext;
