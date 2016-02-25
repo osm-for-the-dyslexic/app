@@ -29,7 +29,7 @@ public class MainOsmForDysActivity extends Activity
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.setWebChromeClient(new WebChromeClient());
 	    JavascriptInterface javascriptInterface;
-		javascriptInterface = new JavascriptInterface(this,databaseName);
+		javascriptInterface = new JavascriptInterface(this);
 		mWebView.addJavascriptInterface(javascriptInterface, "android");        
         mWebView.loadUrl(VIEWER_URL);
     }
