@@ -24,22 +24,21 @@ public class MainOsmForDysActivity extends Activity
         setContentView(R.layout.main);
         
         mWebView = (WebView) findViewById(R.id.mainWebView);
-        if (savedInstanceState != null) {
-            mWebView.restoreState(savedInstanceState);
-        }else{
-            mWebView.setWebViewClient(new OsmForDysWebClient());        
-            mWebView.getSettings().setBuiltInZoomControls(false);
-            mWebView.getSettings().setJavaScriptEnabled(true);
-            mWebView.setWebChromeClient(new WebChromeClient());
-            mWebView.loadUrl(VIEWER_URL);
-        }
+        mWebView.setWebViewClient(new OsmForDysWebClient());        
+        mWebView.getSettings().setBuiltInZoomControls(false);
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.setWebChromeClient(new WebChromeClient());
+	    JavascriptInterface javascriptInterface;
+		javascriptInterface = new JavascriptInterface(this,databaseName);
+		mWebView.addJavascriptInterface(javascriptInterface, "android");        
+        mWebView.loadUrl(VIEWER_URL);
     }
     
-    @Override
-    protected void onSaveInstanceState(Bundle outState ) {
-        super.onSaveInstanceState(outState);
-        mWebView.saveState(outState);
-    }
+    //@Override
+    //protected void onSaveInstanceState(Bundle outState ) {
+    //    super.onSaveInstanceState(outState);
+    //    mWebView.saveState(outState);
+    //}
 
     //@Override
     //protected void onRestoreInstanceState(Bundle savedInstanceState) {
