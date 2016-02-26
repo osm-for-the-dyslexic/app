@@ -20,15 +20,14 @@ public class JavascriptInterface{
     
     public void setSpeachLanguage(String language){
         String[] parts = language.split("-");
-        String l1 = parts[0];
-        String l2 = parts[1].toUpperCase();
-        
-        Locale theLocale = new Locale(l1,l2);
+        final String l1 = parts[0];
+        final String l2 = parts[1].toUpperCase();
+
         tts = new TextToSpeech(mContext, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 if(status != TextToSpeech.ERROR) {
-                    tts.setLanguage(theLocale);
+                    tts.setLanguage(new Locale(l1,l2););
                 }
             }
         });
