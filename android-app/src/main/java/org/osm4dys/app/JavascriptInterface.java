@@ -27,7 +27,7 @@ public class JavascriptInterface{
             @Override
             public void onInit(int status) {
                 if(status != TextToSpeech.ERROR) {
-                    tts.setLanguage(new Locale(l1,l2););
+                    tts.setLanguage(new Locale(l1,l2));
                 }
             }
         });
