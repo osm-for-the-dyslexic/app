@@ -8,6 +8,7 @@ import android.widget.Toast;
 public class JavascriptInterface{
     private MainOsmForDysActivity mContext;
     private TextToSpeech tts = null;
+    private spechRate = 1.0f;
 
     public JavascriptInterface(MainOsmForDysActivity context){
 		mContext = context;
@@ -24,7 +25,6 @@ public class JavascriptInterface{
     
     public void setSpeachSpeed(String speed){
         //Toast.makeText(mContext, "SetSpeachSpeed: " + speed, Toast.LENGTH_SHORT).show();
-        float spechRate = 1.0f;
         int speedInt = Integer.parseInt(speed);
         
         switch (speedInt){
@@ -44,7 +44,7 @@ public class JavascriptInterface{
     public void setSpeachLanguage(String language){
         if ((language == null) || (language.equalsIgnoreCase(""))) {
             tts = null;
-            Toast.makeText(mContext, "VOICE DIDABLED" , Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "VOICE DISABLED" , Toast.LENGTH_SHORT).show();
             return;
         }
         
@@ -61,6 +61,7 @@ public class JavascriptInterface{
                 }
             }
         });
+        tts.setSpeechRate (spechRate);
         Toast.makeText(mContext, "SET VOICE LANGUAGE: " + language.toUpperCase(), Toast.LENGTH_SHORT).show();
     }
     
