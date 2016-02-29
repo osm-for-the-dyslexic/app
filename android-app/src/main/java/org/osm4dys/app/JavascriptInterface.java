@@ -8,7 +8,7 @@ import android.widget.Toast;
 public class JavascriptInterface{
     private MainOsmForDysActivity mContext;
     private TextToSpeech tts = null;
-    private spechRate = 1.0f;
+    private float spechRate = 1.0f;
 
     public JavascriptInterface(MainOsmForDysActivity context){
 		mContext = context;
