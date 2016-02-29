@@ -14,29 +14,35 @@ public class JavascriptInterface{
 	}
 
     public void speak(String textToSay){
-        Toast.makeText(mContext, "Speak: " + textToSay, Toast.LENGTH_SHORT).show();
         if (tts != null){
-            tts.speak(textToSay, TextToSpeech.QUEUE_FLUSH, null);
-            Toast.makeText(mContext, "(ok) Speak: " + textToSay, Toast.LENGTH_SHORT).show();
+            int retval = tts.speak(textToSay, TextToSpeech.QUEUE_FLUSH, null);
+            if (retval != TextToSpeech.SUCCESS){
+                Toast.makeText(mContext, "ERROR IN TEXT TO SPEECH" , Toast.LENGTH_SHORT).show();    
+            }
         }
     }
     
     public void setSpeachSpeed(String speed){
-        Toast.makeText(mContext, "SetSpeachSpeed: " + speed, Toast.LENGTH_SHORT).show();
-        // "-10","-5","0","5","10"
-        // -10 -->  0.5
-        // -5 --> 0.8
-        // 0 --> 1.0
-        // 5 --> 1.2
-        // 10 --> 1.5
-        //if (tts != null){
-        //    tts.setSpeechRate (float speechRate);
-        //}        
+        //Toast.makeText(mContext, "SetSpeachSpeed: " + speed, Toast.LENGTH_SHORT).show();
+        float spechRate = 1.0;
+        int speedInt = Integer.parseInt(speed);
         
+        switch (speedInt){
+            case -10: spechRate = 0.5; break;
+            case -5: spechRate = 0.8; break;
+            case 0: spechRate = 1.0; break;
+            case 5: spechRate = 1.2; break;
+            case 10: spechRate = 1.5; break;
+            default: break;
+        }
+        if (tts != null){
+            tts.setSpeechRate (spechRate);
+            Toast.makeText(mContext, "SET VOICE SPEED: " + speedInt, Toast.LENGTH_SHORT).show();
+        }
     }
     
     public void setSpeachLanguage(String language){
-        Toast.makeText(mContext, "SetSpeachLanguage: " + language, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mContext, "SetSpeachLanguage: " + language, Toast.LENGTH_SHORT).show();
         String[] parts = language.split("-");
         final String l1 = parts[0];
         final String l2 = parts[1].toUpperCase();
@@ -49,7 +55,7 @@ public class JavascriptInterface{
                 }
             }
         });
-        Toast.makeText(mContext, "(ok) SetSpeachLanguage: " + language, Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, "SET VOICE LANGUAGE: " + language.toUpperCase(), Toast.LENGTH_SHORT).show();
     }
     
 }
