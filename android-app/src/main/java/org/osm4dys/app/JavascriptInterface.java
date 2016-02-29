@@ -24,15 +24,15 @@ public class JavascriptInterface{
     
     public void setSpeachSpeed(String speed){
         //Toast.makeText(mContext, "SetSpeachSpeed: " + speed, Toast.LENGTH_SHORT).show();
-        float spechRate = 1.0;
+        float spechRate = 1.0f;
         int speedInt = Integer.parseInt(speed);
         
         switch (speedInt){
-            case -10: spechRate = 0.5; break;
-            case -5: spechRate = 0.8; break;
-            case 0: spechRate = 1.0; break;
-            case 5: spechRate = 1.2; break;
-            case 10: spechRate = 1.5; break;
+            case -10: spechRate = 0.5f; break;
+            case -5: spechRate = 0.8f; break;
+            case 0: spechRate = 1.0f; break;
+            case 5: spechRate = 1.2f; break;
+            case 10: spechRate = 1.5f; break;
             default: break;
         }
         if (tts != null){
