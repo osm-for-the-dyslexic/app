@@ -42,6 +42,12 @@ public class JavascriptInterface{
     }
     
     public void setSpeachLanguage(String language){
+        if ((language == null) || (language.equalsIgnoreCase(""))) {
+            tts = null;
+            Toast.makeText(mContext, "VOICE DIDABLED" , Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
         //Toast.makeText(mContext, "SetSpeachLanguage: " + language, Toast.LENGTH_SHORT).show();
         String[] parts = language.split("-");
         final String l1 = parts[0];
