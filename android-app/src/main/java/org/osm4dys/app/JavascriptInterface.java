@@ -15,9 +15,10 @@ public class JavascriptInterface{
 
     public void speak(String textToSay){
         Toast.makeText(mContext, "Speak: " + textToSay, Toast.LENGTH_SHORT).show();
-        //if (tts != null){
-        //    tts.speak(textToSay, TextToSpeech.QUEUE_FLUSH, null);
-        //}
+        if (tts != null){
+            tts.speak(textToSay, TextToSpeech.QUEUE_FLUSH, null);
+            Toast.makeText(mContext, "(ok) Speak: " + textToSay, Toast.LENGTH_SHORT).show();
+        }
     }
     
     public void setSpeachSpeed(String speed){
