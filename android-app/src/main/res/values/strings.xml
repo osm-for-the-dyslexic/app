@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">OSM FOR THE DYSLEXIC</string>
+    <string name="app_name">OSM for the dyslexic</string>
     <string name="hello_world">Hello OSM4DYS</string>
 
 </resources>
