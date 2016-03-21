@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.graphics.Bitmap;
 
-
+// test
 public class MainOsmForDysActivity extends Activity 
 {
     private WebView mWebView = null;
