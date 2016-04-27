@@ -33,18 +33,6 @@ public class MainOsmForDysActivity extends Activity
 		mWebView.addJavascriptInterface(javascriptInterface, "android");        
         mWebView.loadUrl(VIEWER_URL);
     }
-    
-    //@Override
-    //protected void onSaveInstanceState(Bundle outState ) {
-    //    super.onSaveInstanceState(outState);
-    //    mWebView.saveState(outState);
-    //}
-
-    //@Override
-    //protected void onRestoreInstanceState(Bundle savedInstanceState) {
-    //    super.onRestoreInstanceState(savedInstanceState);
-    //    mWebView.restoreState(savedInstanceState);
-    //}
    
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
